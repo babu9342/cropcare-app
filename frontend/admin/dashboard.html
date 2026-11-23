@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="admin-dashboard">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>Admin Dashboard 🛡️</h1>
+          <p>System overview — <span id="today-date"></span></p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid animate-fade-up delay-1">
+        <div class="stat-card">
+          <div class="stat-icon-wrap amber">📝</div>
+          <div><div class="stat-value" data-target="6">0</div><div class="stat-label">Pending Reports</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap green">✅</div>
+          <div><div class="stat-value" data-target="24">0</div><div class="stat-label">Verified Reports</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap blue">👥</div>
+          <div><div class="stat-value" data-target="148">0</div><div class="stat-label">Registered Farmers</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap red">⚠️</div>
+          <div><div class="stat-value" data-target="3">0</div><div class="stat-label">Active Outbreaks</div></div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="section-title animate-fade-up delay-2">⚡ Admin Actions</div>
+      <div class="action-grid animate-fade-up delay-2">
+        <div class="action-card" onclick="location.href='pending.html'">
+          <span class="action-emoji">📝</span>
+          <h3>Pending Reports</h3>
+          <p>6 awaiting your review</p>
+        </div>
+        <div class="action-card" onclick="location.href='verified.html'">
+          <span class="action-emoji">✅</span>
+          <h3>Verified Reports</h3>
+          <p>Manage active alerts</p>
+        </div>
+        <div class="action-card" onclick="location.href='farmers.html'">
+          <span class="action-emoji">👥</span>
+          <h3>Manage Farmers</h3>
+          <p>148 registered members</p>
+        </div>
+        <div class="action-card" onclick="location.href='analytics.html'">
+          <span class="action-emoji">📊</span>
+          <h3>Analytics</h3>
+          <p>View disease trends</p>
+        </div>
+      </div>
+
+      <!-- Recent pending -->
+      <div class="section-title animate-fade-up delay-3">⏳ Latest Pending Reports</div>
+      <div class="card animate-fade-up delay-3">
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>Farmer</th><th>Crop</th><th>Village</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Ravi Kumar</td>
+                <td>🌾 Paddy</td>
+                <td>Kallur</td>
+                <td>11 Mar 2026</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+                <td><a href="pending.html" class="btn btn-secondary btn-sm">Review →</a></td>
+              </tr>
+              <tr>
+                <td>Priya S</td>
+                <td>🌽 Maize</td>
+                <td>Bhavanisagar</td>
+                <td>10 Mar 2026</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+                <td><a href="pending.html" class="btn btn-secondary btn-sm">Review →</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer"><a href="pending.html" class="btn btn-secondary btn-sm">View all 6 pending →</a></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+  Layout.inject('admin', 'admin-dashboard');
+  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+</script>
+</body>
+</html>

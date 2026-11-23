@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Give Solution — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="submit-solution">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>✍️ Provide Your Solution</h1>
+          <p>Help fellow farmers — share what worked for you</p>
+        </div>
+      </div>
+
+      <div class="card animate-fade-up delay-1" style="max-width:680px;">
+        <div class="card-header">
+          <h2>Solution Submission</h2>
+        </div>
+
+        <div class="card-body" id="solution-form">
+          <div class="alert alert-info" style="margin-bottom:20px;">
+            <span class="alert-icon">📌</span>
+            <p>Responding to: <strong>Paddy Leaf Blast</strong> — Kallur Village, 12 Mar 2026</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Treatment Method <span class="required">*</span></label>
+            <textarea class="textarea" id="treatment-method" placeholder="e.g. Spray neem oil 5ml per litre of water every 3 days for 2 weeks…"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Precaution Steps</label>
+            <textarea class="textarea" id="precaution-steps" placeholder="e.g. Avoid overwatering, ensure proper drainage, wear gloves while applying…"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Experience with this Method</label>
+            <select class="select" id="effectiveness">
+              <option value="">Select effectiveness…</option>
+              <option>✅ Very Effective — completely resolved the problem</option>
+              <option>🔄 Partially Effective — helped reduce spread</option>
+              <option>📋 No personal experience — from literature/extension</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Method Type</label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="radio" name="method-type" value="organic" checked> 🌿 Organic</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="radio" name="method-type" value="chemical"> 🧪 Chemical</label>
+              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="radio" name="method-type" value="cultural"> 🌱 Cultural / Preventive</label>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-lg" id="submit-solution-btn">Share Solution →</button>
+            <a href="solutions.html" class="btn btn-ghost">Cancel</a>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="card-body success-view" id="solution-success" style="display:none;">
+          <div class="success-icon">🌟</div>
+          <h2>Solution Shared!</h2>
+          <p>Thank you for helping the farming community. Your solution has been posted and fellow farmers can now benefit from your experience.</p>
+          <div class="success-actions">
+            <button class="btn btn-ghost" id="reset-solution-btn">Share Another</button>
+            <a href="solutions.html" class="btn btn-primary">View All Solutions</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>Layout.inject('farmer', 'submit-solution');</script>
+</body>
+</html>

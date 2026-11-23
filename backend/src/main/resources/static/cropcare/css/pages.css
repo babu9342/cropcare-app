@@ -1,0 +1,195 @@
+/* ============================================================
+   pages.css — Page-specific & Dashboard Styles
+   ============================================================ */
+
+/* ══════════════════════════════════════
+   AUTH PAGES (Login / Register)
+══════════════════════════════════════ */
+.auth-card {
+  width: 100%; max-width: 440px;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(116,198,157,0.22);
+  backdrop-filter: blur(24px);
+  border-radius: var(--r-xl);
+  padding: 50px 44px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: scaleIn 0.55s var(--ease-out);
+}
+.auth-card.wide { max-width: 500px; }
+
+.auth-logo { text-align: center; margin-bottom: var(--sp-8); }
+.auth-logo .logo-icon { font-size: 3.2rem; display: block; margin-bottom: var(--sp-3); }
+.auth-logo h1 {
+  font-family: var(--font-display);
+  font-size: 1.65rem; font-weight: 900;
+  color: var(--green-light); line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.auth-logo p { color: rgba(116,198,157,0.65); font-size: 0.82rem; margin-top: var(--sp-2); }
+
+.auth-label {
+  display: block;
+  color: var(--green-light); font-size: 0.75rem;
+  font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; margin-bottom: var(--sp-2);
+}
+
+/* Role toggle */
+.role-toggle { display: flex; gap: var(--sp-3); }
+.role-option {
+  flex: 1; padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(116,198,157,0.22);
+  border-radius: var(--r-sm);
+  color: rgba(255,255,255,0.50);
+  cursor: pointer; font-family: var(--font-body);
+  font-size: 0.90rem; text-align: center;
+  transition: all 0.2s;
+}
+.role-option:hover { border-color: var(--green-light); color: rgba(255,255,255,0.80); }
+.role-option.active {
+  background: var(--green-bright); border-color: var(--green-bright);
+  color: #fff; font-weight: 700;
+  box-shadow: 0 4px 16px rgba(64,145,108,0.45);
+}
+
+.auth-footer { text-align: center; margin-top: var(--sp-6); color: rgba(255,255,255,0.35); font-size: 0.85rem; }
+
+
+/* ══════════════════════════════════════
+   DASHBOARD — Activity Table
+══════════════════════════════════════ */
+.activity-section { margin-bottom: var(--sp-8); }
+
+
+/* ══════════════════════════════════════
+   REPORT PAGE
+══════════════════════════════════════ */
+.report-card { max-width: 720px; }
+
+.success-view {
+  text-align: center; padding: var(--sp-12) var(--sp-8);
+}
+.success-view .success-icon { font-size: 3.5rem; margin-bottom: var(--sp-4); }
+.success-view h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem; color: var(--green-deep); margin-bottom: var(--sp-3);
+}
+.success-view p { color: var(--gray-600); margin-bottom: var(--sp-5); }
+.status-pill {
+  display: inline-flex; align-items: center; gap: var(--sp-3);
+  background: var(--yellow-pale); border: 1.5px solid #fbbf24;
+  border-radius: var(--r-md); padding: var(--sp-3) var(--sp-5);
+  color: #78350f; font-weight: 700; font-size: 0.9rem;
+  margin-bottom: var(--sp-6);
+}
+.success-actions { display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap; }
+
+
+/* ══════════════════════════════════════
+   ALERTS PAGE
+══════════════════════════════════════ */
+.alert-card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 700;
+  color: #92400e; margin-bottom: var(--sp-4);
+  display: flex; align-items: center; gap: var(--sp-3);
+}
+.alert-card-title.controlled { color: var(--green-dark); }
+
+.alert-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3) var(--sp-5); margin-bottom: var(--sp-5); }
+.alert-info-item label { font-size: 0.72rem; font-weight: 800; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+.alert-info-item p { font-size: 0.92rem; color: var(--gray-800); margin-top: 3px; font-weight: 500; }
+
+.alert-actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+
+/* ══════════════════════════════════════
+   SOLUTIONS PAGE
+══════════════════════════════════════ */
+.solutions-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; margin-bottom: var(--sp-5); gap: var(--sp-4);
+}
+.solution-author { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.author-name { font-weight: 700; color: var(--green-deep); font-size: 0.95rem; }
+.author-meta { font-size: 0.76rem; color: var(--gray-500); margin-top: 2px; }
+
+.solution-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-4); }
+
+
+/* ══════════════════════════════════════
+   OUTBREAK HISTORY
+══════════════════════════════════════ */
+.history-filters { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-5); }
+.filter-chip {
+  padding: 6px 18px; border-radius: var(--r-full);
+  border: 1.5px solid var(--gray-300); background: var(--white);
+  font-size: 0.80rem; font-weight: 600; color: var(--gray-700);
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-chip.active, .filter-chip:hover {
+  background: var(--green-mid); color: #fff; border-color: var(--green-mid);
+}
+
+
+/* ══════════════════════════════════════
+   ANALYTICS / CHARTS
+══════════════════════════════════════ */
+.chart-card { background: var(--white); border-radius: var(--r-lg); padding: var(--sp-6); box-shadow: var(--shadow-md); border: 1px solid var(--gray-200); }
+.chart-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--green-deep); margin-bottom: var(--sp-5); }
+
+/* Bar chart */
+.bar-chart { display: flex; align-items: flex-end; gap: var(--sp-3); height: 150px; }
+.bar-col { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); flex: 1; }
+.bar-fill {
+  width: 100%; border-radius: var(--r-xs) var(--r-xs) 0 0;
+  background: linear-gradient(180deg, var(--green-light), var(--green-mid));
+  transition: height 0.6s var(--ease-out);
+  min-height: 4px;
+}
+.bar-fill.amber { background: linear-gradient(180deg, var(--amber), var(--amber-dark)); }
+.bar-val  { font-size: 0.72rem; font-weight: 800; color: var(--green-mid); }
+.bar-name { font-size: 0.70rem; color: var(--gray-500); }
+
+/* Progress bars */
+.prog-bar-wrap { margin-bottom: var(--sp-4); }
+.prog-bar-header { display: flex; justify-content: space-between; font-size: 0.83rem; margin-bottom: 6px; }
+.prog-bar-track { height: 9px; background: var(--gray-200); border-radius: var(--r-full); overflow: hidden; }
+.prog-bar-fill  { height: 100%; border-radius: var(--r-full); transition: width 0.8s var(--ease-out); }
+.prog-green { background: linear-gradient(90deg, var(--green-light), var(--green-mid)); }
+.prog-amber { background: linear-gradient(90deg, var(--amber), var(--amber-dark)); }
+.prog-red   { background: linear-gradient(90deg, #f87171, var(--red-alert)); }
+.prog-blue  { background: linear-gradient(90deg, #93c5fd, var(--blue-info)); }
+
+/* Legend */
+.legend-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+.legend-item { display: flex; align-items: center; gap: var(--sp-3); font-size: 0.83rem; }
+.legend-dot  { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+
+/* ══════════════════════════════════════
+   ADMIN — MANAGE FARMERS
+══════════════════════════════════════ */
+.farmer-list-item {
+  display: flex; align-items: center; gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--gray-200);
+  transition: background 0.15s;
+}
+.farmer-list-item:hover { background: var(--gray-50); }
+.farmer-list-item:last-child { border-bottom: none; }
+.farmer-info { flex: 1; }
+.farmer-info .f-name { font-weight: 700; color: var(--green-deep); font-size: 0.92rem; }
+.farmer-info .f-meta { font-size: 0.76rem; color: var(--gray-500); margin-top: 2px; }
+.farmer-actions { display: flex; gap: var(--sp-2); }
+
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 640px) {
+  .auth-card { padding: var(--sp-8) var(--sp-5); }
+  .alert-info-grid { grid-template-columns: 1fr; }
+  .solutions-header { flex-direction: column; }
+}

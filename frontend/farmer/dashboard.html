@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — CropCare Farmer</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="farmer-dashboard">
+
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>Welcome back, <span id="user-name">Ravi</span> 👋</h1>
+          <p>Sathyamangalam Village &nbsp;·&nbsp; <span id="today-date"></span></p>
+        </div>
+        <a href="report.html" class="btn btn-primary btn-lg">+ Report Disease</a>
+      </div>
+
+      <!-- Alert Banner -->
+      <a href="alerts.html" style="text-decoration:none;">
+        <div class="alert alert-danger animate-fade-up delay-1" style="cursor:pointer;margin-bottom:28px;">
+          <span class="alert-icon">🚨</span>
+          <div>
+            <strong>New Verified Alert:</strong> Paddy Leaf Blast detected in Kallur village (12 Mar 2026).
+            <u style="font-weight:700;">View &amp; find solutions →</u>
+          </div>
+        </div>
+      </a>
+
+      <!-- Stats -->
+      <div class="stats-grid animate-fade-up delay-2">
+        <div class="stat-card">
+          <div class="stat-icon-wrap green">🌿</div>
+          <div><div class="stat-value" data-target="4">0</div><div class="stat-label">My Reports</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap amber">⏳</div>
+          <div><div class="stat-value" data-target="2">0</div><div class="stat-label">Pending Verification</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap red">⚠️</div>
+          <div><div class="stat-value" data-target="3">0</div><div class="stat-label">Active Alerts</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrap blue">💡</div>
+          <div><div class="stat-value" data-target="12">0</div><div class="stat-label">Solutions Given</div></div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="section-title animate-fade-up delay-3">⚡ Quick Actions</div>
+      <div class="action-grid animate-fade-up delay-3">
+        <div class="action-card" onclick="location.href='report.html'">
+          <span class="action-emoji">🦠</span>
+          <h3>Report Disease</h3>
+          <p>Submit a new crop disease observation</p>
+        </div>
+        <div class="action-card" onclick="location.href='alerts.html'">
+          <span class="action-emoji">📢</span>
+          <h3>View Alerts</h3>
+          <p>3 verified outbreaks near you</p>
+        </div>
+        <div class="action-card" onclick="location.href='solutions.html'">
+          <span class="action-emoji">💡</span>
+          <h3>Community Solutions</h3>
+          <p>Help others with your experience</p>
+        </div>
+        <div class="action-card" onclick="location.href='history.html'">
+          <span class="action-emoji">📊</span>
+          <h3>Outbreak History</h3>
+          <p>Browse past disease records</p>
+        </div>
+      </div>
+
+      <!-- Recent Reports -->
+      <div class="section-title animate-fade-up delay-4">📋 Recent Reports</div>
+      <div class="card animate-fade-up delay-4">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th><th>Crop</th><th>Symptoms</th><th>Village</th><th>Date</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.78rem;">#004</td>
+                <td>🌾 Paddy</td>
+                <td>Yellow leaves, wilting</td>
+                <td>Kallur</td>
+                <td>11 Mar 2026</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.78rem;">#003</td>
+                <td>🍅 Tomato</td>
+                <td>Brown spots on fruit</td>
+                <td>Sathyamangalam</td>
+                <td>05 Mar 2026</td>
+                <td><span class="badge badge-verified">Verified</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.78rem;">#002</td>
+                <td>🥜 Groundnut</td>
+                <td>White mold on stems</td>
+                <td>Sathyamangalam</td>
+                <td>28 Feb 2026</td>
+                <td><span class="badge badge-verified">Verified</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <a href="my-reports.html" class="btn btn-secondary btn-sm">View all reports →</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>
+  Layout.inject('farmer', 'farmer-dashboard');
+  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  const u = App.getUser();
+  if (u.currentUser) document.getElementById('user-name').textContent = u.currentUser;
+</script>
+</body>
+</html>

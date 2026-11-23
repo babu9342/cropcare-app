@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Farmers — Admin</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="admin-farmers">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>👥 Manage Farmers</h1>
+          <p>148 registered farmers in the system</p>
+        </div>
+        <input class="input" id="farmers-search" placeholder="🔍 Search by name or village…" style="max-width:260px;">
+      </div>
+
+      <div class="card animate-fade-up delay-1">
+        <div id="farmers-tbody">
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👨</div>
+            <div class="farmer-info"><div class="f-name">Ravi Kumar</div><div class="f-meta">Kallur Village · 4 reports · Joined Jan 2025</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👩</div>
+            <div class="farmer-info"><div class="f-name">Priya Selvam</div><div class="f-meta">Bhavanisagar · 2 reports · Joined Mar 2025</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👴</div>
+            <div class="farmer-info"><div class="f-name">Mani Krishnan</div><div class="f-meta">Sathyamangalam · 7 reports · Joined Dec 2024</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👩</div>
+            <div class="farmer-info"><div class="f-name">Lakshmi Devi</div><div class="f-meta">Gobichettipalayam · 3 reports · Joined Feb 2025</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👨</div>
+            <div class="farmer-info"><div class="f-name">Murugan Raja</div><div class="f-meta">Kallur Village · 5 reports · Joined Nov 2024</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+          <div class="farmer-list-item">
+            <div class="farmer-avatar">👨</div>
+            <div class="farmer-info"><div class="f-name">Anbu Selvan</div><div class="f-meta">Mettupalayam · 1 report · Joined Apr 2025</div></div>
+            <div class="farmer-actions">
+              <button class="btn btn-ghost btn-sm">View</button>
+              <button class="btn btn-danger btn-sm btn-remove-farmer">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+  Layout.inject('admin', 'admin-farmers');
+  // Search
+  document.getElementById('farmers-search').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.farmer-list-item').forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+</body>
+</html>

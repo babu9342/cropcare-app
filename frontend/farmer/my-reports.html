@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reports — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="my-reports">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>📋 My Reports</h1>
+          <p>All disease reports submitted by you</p>
+        </div>
+        <a href="report.html" class="btn btn-primary">+ New Report</a>
+      </div>
+
+      <div class="card animate-fade-up delay-1">
+        <div class="card-header">
+          <h2>Report History</h2>
+          <input class="input" id="reports-search" placeholder="🔍 Search reports…" style="max-width:240px;">
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th><th>Crop</th><th>Symptoms</th><th>Village</th><th>Date</th><th>Area (Ac)</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="my-reports-tbody">
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.75rem;font-family:var(--font-mono);">#004</td>
+                <td>🌾 Paddy</td>
+                <td>Yellow leaves, wilting stems</td>
+                <td>Kallur</td>
+                <td>11 Mar 2026</td>
+                <td>3.0</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.75rem;font-family:var(--font-mono);">#003</td>
+                <td>🍅 Tomato</td>
+                <td>Brown spots on fruit, curling</td>
+                <td>Sathyamangalam</td>
+                <td>05 Mar 2026</td>
+                <td>1.5</td>
+                <td><span class="badge badge-verified">Verified ✓</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.75rem;font-family:var(--font-mono);">#002</td>
+                <td>🥜 Groundnut</td>
+                <td>White mold on stems and roots</td>
+                <td>Sathyamangalam</td>
+                <td>28 Feb 2026</td>
+                <td>2.0</td>
+                <td><span class="badge badge-verified">Verified ✓</span></td>
+              </tr>
+              <tr>
+                <td style="color:var(--gray-500);font-size:0.75rem;font-family:var(--font-mono);">#001</td>
+                <td>🌽 Maize</td>
+                <td>Stem borer holes, stunted growth</td>
+                <td>Bhavanisagar</td>
+                <td>10 Feb 2026</td>
+                <td>4.0</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>Layout.inject('farmer', 'my-reports');</script>
+</body>
+</html>

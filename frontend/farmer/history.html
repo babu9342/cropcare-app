@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outbreak History — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="history">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>📊 Disease Outbreak History</h1>
+          <p>Historical records of crop disease outbreaks in the region</p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="history-filters animate-fade-up delay-1">
+        <button class="filter-chip active" data-filter="All Years">All Years</button>
+        <button class="filter-chip" data-filter="2026">2026</button>
+        <button class="filter-chip" data-filter="2025">2025</button>
+        <button class="filter-chip" data-filter="2024">2024</button>
+        <button class="filter-chip" data-filter="Paddy">Paddy</button>
+        <button class="filter-chip" data-filter="Tomato">Tomato</button>
+        <button class="filter-chip" data-filter="Maize">Maize</button>
+      </div>
+
+      <!-- History Table -->
+      <div class="card animate-fade-up delay-2" style="margin-bottom:28px;">
+        <div class="card-header"><h2>Outbreak Records</h2></div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Year</th><th>Crop</th><th>Disease</th><th>Region</th><th>Cases</th><th>Controlled</th><th>Ongoing</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody">
+              <tr><td>2026</td><td>🌾 Paddy</td><td>Leaf Blast</td><td>Kallur, Erode</td><td>12</td><td>8</td><td>4</td><td><span class="badge badge-ongoing">Ongoing</span></td></tr>
+              <tr><td>2026</td><td>🍅 Tomato</td><td>Early Blight</td><td>Bhavanisagar</td><td>7</td><td>7</td><td>0</td><td><span class="badge badge-controlled">Controlled</span></td></tr>
+              <tr><td>2025</td><td>🌾 Paddy</td><td>Brown Plant Hopper</td><td>Sathyamangalam</td><td>24</td><td>22</td><td>0</td><td><span class="badge badge-controlled">Controlled</span></td></tr>
+              <tr><td>2025</td><td>🥜 Groundnut</td><td>Root Rot</td><td>Gobichettipalayam</td><td>15</td><td>12</td><td>0</td><td><span class="badge badge-controlled">Controlled</span></td></tr>
+              <tr><td>2024</td><td>🌽 Maize</td><td>Fall Armyworm</td><td>Erode District</td><td>31</td><td>31</td><td>0</td><td><span class="badge badge-controlled">Controlled</span></td></tr>
+              <tr><td>2024</td><td>🍅 Tomato</td><td>Viral Mosaic</td><td>Mettupalayam</td><td>18</td><td>16</td><td>0</td><td><span class="badge badge-controlled">Controlled</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="cards-grid animate-fade-up delay-3">
+        <div class="chart-card">
+          <h3>📈 Outbreaks by Year</h3>
+          <div class="bar-chart">
+            <div class="bar-col"><div class="bar-val">49</div><div class="bar-fill" style="height:110px;"></div><div class="bar-name">2024</div></div>
+            <div class="bar-col"><div class="bar-val">39</div><div class="bar-fill" style="height:88px;"></div><div class="bar-name">2025</div></div>
+            <div class="bar-col"><div class="bar-val">19</div><div class="bar-fill amber" style="height:44px;"></div><div class="bar-name">2026</div></div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>🌾 Most Affected Crops</h3>
+          <div class="prog-bar-wrap">
+            <div class="prog-bar-header"><span>🌾 Paddy</span><span class="font-bold">36%</span></div>
+            <div class="prog-bar-track"><div class="prog-bar-fill prog-green" data-width="36%" style="width:0%"></div></div>
+          </div>
+          <div class="prog-bar-wrap">
+            <div class="prog-bar-header"><span>🌽 Maize</span><span class="font-bold">28%</span></div>
+            <div class="prog-bar-track"><div class="prog-bar-fill prog-amber" data-width="28%" style="width:0%"></div></div>
+          </div>
+          <div class="prog-bar-wrap">
+            <div class="prog-bar-header"><span>🍅 Tomato</span><span class="font-bold">23%</span></div>
+            <div class="prog-bar-track"><div class="prog-bar-fill prog-red" data-width="23%" style="width:0%"></div></div>
+          </div>
+          <div class="prog-bar-wrap">
+            <div class="prog-bar-header"><span>🥜 Groundnut</span><span class="font-bold">13%</span></div>
+            <div class="prog-bar-track"><div class="prog-bar-fill prog-blue" data-width="13%" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>
+  Layout.inject('farmer', 'history');
+  // Animate progress bars
+  setTimeout(() => {
+    document.querySelectorAll('.prog-bar-fill[data-width]').forEach(bar => {
+      bar.style.transition = 'width 0.9s cubic-bezier(0.16,1,0.3,1)';
+      bar.style.width = bar.dataset.width;
+    });
+  }, 300);
+</script>
+</body>
+</html>

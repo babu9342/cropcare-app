@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — CropCare Community</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/location.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="login">
+
+<div class="auth-bg">
+  <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(0deg,rgba(26,58,42,0.8),transparent);pointer-events:none;"></div>
+
+  <div class="auth-card animate-scale-in">
+
+    <div class="auth-logo">
+      <span class="logo-icon">🌾</span>
+      <h1>CropCare Community</h1>
+      <p>Outbreak Reporting &amp; Community Solutions</p>
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">Email Address</label>
+      <input class="auth-input" id="login-email" type="email" placeholder="farmer@example.com" autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">Password</label>
+      <input class="auth-input" id="login-password" type="password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">Login as</label>
+      <div class="role-toggle">
+        <button class="role-option active" data-role="farmer" onclick="selectRole(this)">🧑‍🌾 Farmer</button>
+        <button class="role-option" data-role="admin" onclick="selectRole(this)">🛡️ Admin</button>
+      </div>
+    </div>
+
+    <button class="btn-auth" id="login-btn" onclick="doLogin()">LOGIN →</button>
+
+    <div class="auth-footer">
+      New farmer? <a class="text-link" href="register.html">Register here</a>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/location.js"></script>
+<script>
+  let selectedRole = 'farmer';
+
+  function selectRole(btn) {
+    document.querySelectorAll('.role-option').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedRole = btn.dataset.role;
+  }
+
+  async function doLogin() {
+    const email    = App.val('login-email');
+    const password = App.val('login-password');
+    if (!email)    { App.toast('Please enter your email.', 'warning'); return; }
+    if (!password) { App.toast('Please enter your password.', 'warning'); return; }
+
+    App.setLoading('login-btn', true, 'Logging in...');
+    try {
+      const data = await App.api('/api/auth/login', 'POST', { email, password, role: selectedRole });
+
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('cropUser', JSON.stringify({ name: data.name, role: data.role }));
+
+      App.setLoading('login-btn', false);
+      App.toast('Welcome ' + data.name + '!', 'success');
+
+      setTimeout(() => {
+        const role = (data.role || '').toUpperCase();
+        window.location.href = role === 'ADMIN' ? 'admin/dashboard.html' : 'farmer/dashboard.html';
+      }, 800);
+
+    } catch (err) {
+      App.setLoading('login-btn', false);
+      App.toast(err.message || 'Login failed. Check credentials.', 'error');
+    }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pending Reports — Admin</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="admin-pending">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>📝 Pending Reports</h1>
+          <p><span id="pending-count">3</span> reports awaiting admin verification</p>
+        </div>
+      </div>
+
+      <div id="verify-banner" style="display:none;" class="alert alert-success animate-fade-in">
+        <span class="alert-icon">✅</span>
+        <p><strong>Report verified!</strong> Alert has been automatically sent to all registered farmers in the affected region.</p>
+      </div>
+
+      <div class="card animate-fade-up delay-1">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Farmer</th><th>Crop</th><th>Symptoms</th><th>Village</th><th>Date</th><th>Area</th><th>Status</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row-1">
+                <td><strong>Ravi Kumar</strong></td>
+                <td>🌾 Paddy</td>
+                <td>Yellow leaves, wilting</td>
+                <td>Kallur</td>
+                <td>11 Mar 2026</td>
+                <td>3 Ac</td>
+                <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                <td>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="btn btn-ghost btn-sm btn-view-report">View</button>
+                    <button class="btn btn-primary btn-sm btn-verify">✓ Verify</button>
+                    <button class="btn btn-danger btn-sm btn-reject">Reject</button>
+                  </div>
+                </td>
+              </tr>
+              <tr id="row-2">
+                <td><strong>Priya S</strong></td>
+                <td>🌽 Maize</td>
+                <td>Stem borer holes, stunted</td>
+                <td>Bhavanisagar</td>
+                <td>10 Mar 2026</td>
+                <td>2 Ac</td>
+                <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                <td>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="btn btn-ghost btn-sm btn-view-report">View</button>
+                    <button class="btn btn-primary btn-sm btn-verify">✓ Verify</button>
+                    <button class="btn btn-danger btn-sm btn-reject">Reject</button>
+                  </div>
+                </td>
+              </tr>
+              <tr id="row-3">
+                <td><strong>Murugan R</strong></td>
+                <td>🥜 Groundnut</td>
+                <td>Leaf spots, yellowing</td>
+                <td>Gobichettipalayam</td>
+                <td>09 Mar 2026</td>
+                <td>5 Ac</td>
+                <td class="status-cell"><span class="badge badge-pending">Pending</span></td>
+                <td>
+                  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <button class="btn btn-ghost btn-sm btn-view-report">View</button>
+                    <button class="btn btn-primary btn-sm btn-verify">✓ Verify</button>
+                    <button class="btn btn-danger btn-sm btn-reject">Reject</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/admin.js"></script>
+<script>Layout.inject('admin', 'admin-pending');</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Target & Build artifacts
+**/target/
+**/*.class
+**/*.jar
+**/*.war
+**/*.nar
+
+# Logs
+*.log
+**/logs/
+
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment variables
+.env
+.env.local
+
+# Vercel cache
+.vercel/
+
+# Legacy nested folders
+crop (2)/

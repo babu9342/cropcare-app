@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Disease — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="report">
+
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>🦠 Report Crop Disease</h1>
+          <p>Submit a new disease observation for admin verification</p>
+        </div>
+      </div>
+
+      <div class="card report-card animate-fade-up delay-1">
+        <div class="card-header">
+          <h2>Disease Report Form</h2>
+          <span class="badge badge-pending">New Report</span>
+        </div>
+
+        <!-- FORM -->
+        <div class="card-body" id="report-form">
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Crop Type <span class="required">*</span></label>
+              <select class="select" id="crop-type">
+                <option value="">Select crop type…</option>
+                <option>Paddy (Rice)</option>
+                <option>Wheat</option>
+                <option>Tomato</option>
+                <option>Groundnut</option>
+                <option>Cotton</option>
+                <option>Sugarcane</option>
+                <option>Maize</option>
+                <option>Sorghum</option>
+                <option>Brinjal</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date Observed <span class="required">*</span></label>
+              <input class="input" id="date-observed" type="date">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Symptoms Description <span class="required">*</span></label>
+            <textarea class="textarea" id="symptoms" placeholder="Describe what you see — leaf discolouration, spots, wilting, pest activity, unusual odours…"></textarea>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Affected Area (Acres)</label>
+              <input class="input" id="affected-area" type="number" min="0.1" step="0.1" placeholder="e.g. 2.5">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Severity Estimate</label>
+              <select class="select" id="severity">
+                <option value="">Select severity…</option>
+                <option>🟢 Mild — &lt;10% crop affected</option>
+                <option>🟡 Moderate — 10–40% affected</option>
+                <option>🔴 Severe — &gt;40% affected</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- LOCATION SECTION -->
+          <div class="loc-section">
+            <div class="loc-section-title">📍 Field Location</div>
+            <div class="loc-action-row">
+              <button class="btn-location" id="loc-detect-btn">
+                <span class="btn-icon-inner">🛰️ Use GPS — Auto Detect</span>
+                <span class="spinner"></span>
+              </button>
+              <span class="loc-hint">or fill in the fields below manually</span>
+            </div>
+            <div id="loc-status"></div>
+
+            <div class="form-grid-3" style="margin-top:14px;">
+              <div>
+                <label class="form-label" style="font-size:0.78rem;">Village / Town</label>
+                <input class="input" id="report-village" placeholder="Village name">
+              </div>
+              <div>
+                <label class="form-label" style="font-size:0.78rem;">District</label>
+                <input class="input" id="report-district" placeholder="District">
+              </div>
+              <div>
+                <label class="form-label" style="font-size:0.78rem;">State</label>
+                <input class="input" id="report-state" placeholder="State">
+              </div>
+            </div>
+
+            <div id="loc-coords" style="display:none;" class="loc-coords"></div>
+            <div class="map-preview" id="map-preview">
+              <div class="map-overlay">📍 <span id="map-label">Your Field</span></div>
+              <iframe id="map-frame" src="" allowfullscreen loading="lazy" title="Field location map"></iframe>
+              <a class="map-open-link" id="map-osm-link" href="#" target="_blank" rel="noopener">Open in Maps ↗</a>
+            </div>
+          </div>
+
+          <!-- IMAGE UPLOAD -->
+          <div class="form-group">
+            <label class="form-label">Upload Field Photo (Optional)</label>
+            <div class="file-upload" id="upload-area">
+              <div class="upload-icon">📷</div>
+              <p>Click to upload or drag &amp; drop</p>
+              <small>JPG, PNG, WEBP — max 10MB</small>
+              <input type="file" id="disease-image" accept="image/*" style="display:none">
+            </div>
+            <div id="file-preview" style="margin-top:10px;"></div>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-lg" id="submit-report-btn">Submit Report →</button>
+            <button class="btn btn-ghost" onclick="history.back()">Cancel</button>
+          </div>
+
+        </div><!-- /report-form -->
+
+        <!-- SUCCESS STATE -->
+        <div class="card-body success-view" id="report-success" style="display:none;">
+          <div class="success-icon">✅</div>
+          <h2>Report Submitted!</h2>
+          <p>Your crop disease report has been sent for admin review.</p>
+          <div class="status-pill">⏳ Status: <strong>Pending Admin Verification</strong></div>
+          <div class="success-actions">
+            <button class="btn btn-ghost" id="reset-report-btn">Report Another</button>
+            <a href="dashboard.html" class="btn btn-primary">Back to Dashboard</a>
+          </div>
+        </div>
+
+      </div><!-- /card -->
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>
+  Layout.inject('farmer', 'report');
+  // Set today as default date
+  document.getElementById('date-observed').value = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>

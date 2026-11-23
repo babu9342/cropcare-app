@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="alerts">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>📢 Community Alerts</h1>
+          <p>Verified disease outbreaks in your region</p>
+        </div>
+      </div>
+
+      <!-- Active Alert 1 -->
+      <div class="disease-alert-card animate-fade-up delay-1">
+        <div class="alert-card-title">⚠️ Verified Disease Alert</div>
+        <div class="alert-info-grid">
+          <div class="alert-info-item"><label>Crop</label><p>🌾 Paddy (Rice)</p></div>
+          <div class="alert-info-item"><label>Village</label><p>📍 Kallur, Erode Dist.</p></div>
+          <div class="alert-info-item"><label>Symptoms</label><p>Leaf Blast — brown diamond-shaped lesions</p></div>
+          <div class="alert-info-item"><label>Date Reported</label><p>12 March 2026</p></div>
+          <div class="alert-info-item"><label>Affected Area</label><p>~18 acres across 6 farms</p></div>
+          <div class="alert-info-item"><label>Status</label><p><span class="badge badge-alert">Active Outbreak</span></p></div>
+        </div>
+        <div class="alert-actions">
+          <a href="solutions.html" class="btn btn-primary btn-sm">💡 View Solutions</a>
+          <a href="submit-solution.html" class="btn btn-secondary btn-sm">✍️ Give Solution</a>
+        </div>
+      </div>
+
+      <!-- Alert 2 - Controlled -->
+      <div class="disease-alert-card controlled animate-fade-up delay-2">
+        <div class="alert-card-title controlled">ℹ️ Advisory — Outbreak Controlled</div>
+        <div class="alert-info-grid">
+          <div class="alert-info-item"><label>Crop</label><p>🍅 Tomato</p></div>
+          <div class="alert-info-item"><label>Village</label><p>📍 Bhavanisagar</p></div>
+          <div class="alert-info-item"><label>Symptoms</label><p>Early Blight — dark circular spots on leaves</p></div>
+          <div class="alert-info-item"><label>Date Reported</label><p>08 March 2026</p></div>
+          <div class="alert-info-item"><label>Affected Area</label><p>~5 acres</p></div>
+          <div class="alert-info-item"><label>Status</label><p><span class="badge badge-controlled">Controlled</span></p></div>
+        </div>
+        <div class="alert-actions">
+          <a href="solutions.html" class="btn btn-secondary btn-sm">💡 View Solutions</a>
+        </div>
+      </div>
+
+      <div class="alert alert-info animate-fade-up delay-3">
+        <span class="alert-icon">ℹ️</span>
+        <div>Alerts are sent automatically when admin verifies a new disease report. <a href="report.html" class="text-link">Report a new sighting →</a></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script>Layout.inject('farmer', 'alerts');</script>
+</body>
+</html>

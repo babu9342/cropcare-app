@@ -1,0 +1,79 @@
+/* ============================================================
+   variables.css — Design Tokens & CSS Custom Properties
+   Crop Disease Community System
+   ============================================================ */
+
+:root {
+  /* ── Brand Palette ── */
+  --green-deep:   #0f2d1e;
+  --green-dark:   #1a3a2a;
+  --green-mid:    #2d6a4f;
+  --green-bright: #40916c;
+  --green-light:  #74c69d;
+  --green-pale:   #d8f3dc;
+  --green-ghost:  #f0faf4;
+
+  --amber:        #f4a261;
+  --amber-dark:   #e76f51;
+  --amber-pale:   #fff3e0;
+
+  --cream:        #fefae0;
+  --cream-dark:   #f5f0d0;
+
+  --white:        #ffffff;
+
+  /* ── Neutrals ── */
+  --gray-50:  #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  /* ── Semantics ── */
+  --red-alert:   #e63946;
+  --red-pale:    #ffeaea;
+  --blue-info:   #1e88e5;
+  --blue-pale:   #e3f2fd;
+  --yellow-warn: #f59e0b;
+  --yellow-pale: #fffbeb;
+
+  /* ── Shadows ── */
+  --shadow-xs:   0 1px 4px rgba(15,45,30,0.08);
+  --shadow-sm:   0 2px 8px rgba(15,45,30,0.10);
+  --shadow-md:   0 4px 20px rgba(15,45,30,0.12);
+  --shadow-lg:   0 8px 32px rgba(15,45,30,0.15);
+  --shadow-xl:   0 16px 48px rgba(15,45,30,0.20);
+  --shadow-inset: inset 0 2px 6px rgba(0,0,0,0.06);
+
+  /* ── Border Radius ── */
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  24px;
+  --r-full: 9999px;
+
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Spacing ── */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;
+  --sp-4: 16px;  --sp-5: 20px;  --sp-6: 24px;
+  --sp-8: 32px;  --sp-10: 40px; --sp-12: 48px;
+
+  /* ── Transitions ── */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:    cubic-bezier(0.4, 0, 1, 1);
+  --ease-inout: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Layout ── */
+  --sidebar-w: 264px;
+  --navbar-h:  60px;
+}

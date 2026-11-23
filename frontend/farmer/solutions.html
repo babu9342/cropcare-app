@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Solutions — CropCare</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/location.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="solutions">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>💡 Community Solutions</h1>
+          <p>Paddy Leaf Blast — Kallur Village · 12 Mar 2026</p>
+        </div>
+        <a href="submit-solution.html" class="btn btn-primary">+ Give Solution</a>
+      </div>
+
+      <div class="alert alert-warning animate-fade-up delay-1">
+        <span class="alert-icon">📌</span>
+        <p>Showing 3 community solutions for <strong>Paddy Leaf Blast</strong>. Most helpful solutions appear first.</p>
+      </div>
+
+      <!-- Filter chips -->
+      <div class="history-filters animate-fade-up delay-1">
+        <button class="filter-chip active" data-filter="All">All Solutions</button>
+        <button class="filter-chip" data-filter="neem">Organic</button>
+        <button class="filter-chip" data-filter="fungicide">Chemical</button>
+        <button class="filter-chip" data-filter="drainage">Cultural</button>
+      </div>
+
+      <!-- Solution 1 -->
+      <div class="solution-card animate-fade-up delay-2">
+        <div class="solution-author">
+          <div class="farmer-avatar">👨</div>
+          <div>
+            <div class="author-name">Kumar Selvam</div>
+            <div class="author-meta">Farmer · Kallur Village · 12 Mar 2026</div>
+          </div>
+        </div>
+        <div class="solution-meta-block">
+          <label>🧪 Treatment Method</label>
+          <p>Spray neem oil solution — 5ml per 1 litre of water. Apply every 3 days for 2 weeks. Best applied in early morning or late evening to avoid leaf burn.</p>
+        </div>
+        <div class="solution-meta-block">
+          <label>🛡️ Precaution Steps</label>
+          <p>Maintain proper plant spacing. Avoid over-watering. Ensure good drainage channels in the field.</p>
+        </div>
+        <div class="solution-footer">
+          <button class="vote-btn voted">👍 Helpful · <span class="vote-count">5</span> farmers</button>
+          <span class="badge badge-verified">Organic Method</span>
+        </div>
+      </div>
+
+      <!-- Solution 2 -->
+      <div class="solution-card animate-fade-up delay-3">
+        <div class="solution-author">
+          <div class="farmer-avatar">👴</div>
+          <div>
+            <div class="author-name">Mani Krishnan</div>
+            <div class="author-meta">Farmer · Bhavanisagar · 13 Mar 2026</div>
+          </div>
+        </div>
+        <div class="solution-meta-block">
+          <label>🧪 Treatment Method</label>
+          <p>Apply Tricyclazole fungicide (0.6g/L) or Carbendazim (1g/L) dissolved in water. Spray thoroughly on affected plants including the underside of leaves.</p>
+        </div>
+        <div class="solution-meta-block">
+          <label>🛡️ Precaution Steps</label>
+          <p>Wear protective gloves and face mask while spraying. Keep children and livestock away for 24 hours. Avoid spraying near water bodies.</p>
+        </div>
+        <div class="solution-footer">
+          <button class="vote-btn">👍 Helpful · <span class="vote-count">3</span> farmers</button>
+          <span class="badge badge-alert">Chemical Method</span>
+        </div>
+      </div>
+
+      <!-- Solution 3 -->
+      <div class="solution-card animate-fade-up delay-4">
+        <div class="solution-author">
+          <div class="farmer-avatar">👩</div>
+          <div>
+            <div class="author-name">Lakshmi Devi</div>
+            <div class="author-meta">Farmer · Sathyamangalam · 14 Mar 2026</div>
+          </div>
+        </div>
+        <div class="solution-meta-block">
+          <label>🧪 Treatment Method</label>
+          <p>Remove and destroy all visibly infected plant parts immediately. Apply potassium (K) fertiliser to boost plant immunity. Reduce nitrogen application temporarily.</p>
+        </div>
+        <div class="solution-meta-block">
+          <label>🛡️ Precaution Steps</label>
+          <p>Do not flood the field during treatment period. Switch to blast-resistant paddy varieties (CO 51, ADT 45) for next season.</p>
+        </div>
+        <div class="solution-footer">
+          <button class="vote-btn">👍 Helpful · <span class="vote-count">7</span> farmers</button>
+          <span class="badge badge-controlled">Cultural Method</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/farmer.js"></script>
+<script>Layout.inject('farmer', 'solutions');</script>
+</body>
+</html>

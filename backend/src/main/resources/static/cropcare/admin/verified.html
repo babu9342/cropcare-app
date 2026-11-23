@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verified Reports — Admin</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body data-page="admin-verified">
+<div class="app-wrapper">
+  <div id="navbar-slot"></div>
+  <div class="app-body">
+    <aside class="sidebar"><div id="sidebar-slot"></div></aside>
+    <main class="main-content">
+
+      <div class="page-header animate-fade-up">
+        <div>
+          <h1>✅ Verified Reports</h1>
+          <p>All confirmed disease outbreaks — alerts sent to farmers</p>
+        </div>
+      </div>
+
+      <div class="card animate-fade-up delay-1">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th>Farmer</th><th>Crop</th><th>Disease</th><th>Village</th><th>Verified On</th><th>Alert Sent</th><th>Solutions</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Karthik M</td><td>🌾 Paddy</td><td>Leaf Blast</td><td>Kallur</td><td>12 Mar 2026</td><td>✅ 148 farmers</td><td>8 solutions</td></tr>
+              <tr><td>Anbu S</td><td>🍅 Tomato</td><td>Early Blight</td><td>Bhavanisagar</td><td>08 Mar 2026</td><td>✅ 148 farmers</td><td>5 solutions</td></tr>
+              <tr><td>Meena D</td><td>🥜 Groundnut</td><td>Root Rot</td><td>Sathyamangalam</td><td>01 Mar 2026</td><td>✅ 148 farmers</td><td>3 solutions</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="../js/app.js"></script>
+<script src="../js/location.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/admin.js"></script>
+<script>Layout.inject('admin', 'admin-verified');</script>
+</body>
+</html>

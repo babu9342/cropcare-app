@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — CropCare Community</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/location.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="register">
+
+<div class="auth-bg">
+  <div class="auth-card wide animate-scale-in">
+
+    <div class="auth-logo">
+      <span class="logo-icon">🌱</span>
+      <h1>Farmer Registration</h1>
+      <p>Join the crop disease community network</p>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label class="auth-label">Full Name</label>
+        <input class="auth-input" id="reg-name" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label class="auth-label">Phone Number</label>
+        <input class="auth-input" id="reg-phone" type="tel" placeholder="+91 XXXXXXXXXX">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">Email Address</label>
+      <input class="auth-input" id="reg-email" type="email" placeholder="email@example.com">
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">📍 Your Location</label>
+      <button class="btn-location" id="reg-loc-btn" onclick="detectRegisterLocation()" style="width:100%;justify-content:center;margin-bottom:10px;">
+        <span class="btn-icon-inner">🛰️ Detect My Location</span>
+        <span class="spinner"></span>
+      </button>
+      <div id="reg-loc-status"></div>
+    </div>
+
+    <div class="form-grid-3">
+      <div class="form-group">
+        <label class="auth-label">Village / Town</label>
+        <input class="auth-input" id="reg-village" placeholder="Village">
+      </div>
+      <div class="form-group">
+        <label class="auth-label">District</label>
+        <input class="auth-input" id="reg-district" placeholder="District">
+      </div>
+      <div class="form-group">
+        <label class="auth-label">State</label>
+        <input class="auth-input" id="reg-state" placeholder="State">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="auth-label">Create Password</label>
+      <input class="auth-input" id="reg-password" type="password" placeholder="Min. 8 characters">
+    </div>
+
+    <button class="btn-auth" id="reg-btn" onclick="doRegister()">CREATE ACCOUNT →</button>
+
+    <div class="auth-footer">
+      Already registered? <a class="text-link" href="index.html">Login here</a>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/location.js"></script>
+<script>
+  function detectRegisterLocation() {
+    LocationAPI.detect({
+      btnId: 'reg-loc-btn', statusId: 'reg-loc-status',
+      onSuccess(loc) {
+        LocationAPI.fillFields(loc, { village: 'reg-village', district: 'reg-district', state: 'reg-state' });
+        App.toast('Location auto-filled!', 'success');
+      }
+    });
+  }
+
+  async function doRegister() {
+    const name     = App.val('reg-name');
+    const email    = App.val('reg-email');
+    const password = App.val('reg-password');
+    const phone    = App.val('reg-phone');
+    const village  = App.val('reg-village');
+    const district = App.val('reg-district');
+    const state    = App.val('reg-state');
+
+    if (!name)  { App.toast('Please enter your name.', 'warning'); return; }
+    if (!email) { App.toast('Please enter your email.', 'warning'); return; }
+    if (!password || password.length < 6) { App.toast('Password must be at least 6 characters.', 'warning'); return; }
+
+    App.setLoading('reg-btn', true, 'Creating account...');
+    try {
+      const data = await App.api('/api/auth/register', 'POST', {
+        name, email, password, phone, village, district, state
+      });
+
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('cropUser', JSON.stringify({ name: data.name, role: data.role }));
+
+      App.setLoading('reg-btn', false);
+      App.toast('Account created! Welcome ' + data.name + '!', 'success');
+
+      setTimeout(() => { window.location.href = 'farmer/dashboard.html'; }, 800);
+
+    } catch (err) {
+      App.setLoading('reg-btn', false);
+      App.toast(err.message || 'Registration failed.', 'error');
+    }
+  }
+</script>
+</body>
+</html>
